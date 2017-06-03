@@ -1,0 +1,34 @@
+{
+  "name": "weekend-challenge-3",
+  "version": "1.0.0",
+  "description": "jen-stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BluePawDev/jen-stack.git"
+  },
+  "author": "jaruby@me.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BluePawDev/jen-stack/issues"
+  },
+  "homepage": "https://github.com/BluePawDev/jen-stack#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pg": "^6.2.3"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "node",
+    "jquery",
+    "express",
+    "challenge",
+    "weekend",
+    "full-stack"
+  ]
+}
