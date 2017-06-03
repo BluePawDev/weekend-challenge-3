@@ -29,6 +29,9 @@
     "express",
     "challenge",
     "weekend",
-    "full-stack"
+    "full-stack",
+    "postgresql",
+    "ajax",
+    "json"
   ]
 }
