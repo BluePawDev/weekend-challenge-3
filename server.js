@@ -36,10 +36,10 @@ app.get('/', function(req, res) {
 }); // END base URL
 
 
-// START tasks GET response
+// START /tasks GET response
 app.get('/tasks', function(req, res) {
 	console.log('/tasks URL hit');
-	// Connect to dbToDo
+	// Start definition to connect to dbToDo
 	pool.connect(function(err, connection, done) {
 		// Start if error
 		if (err) {
@@ -47,19 +47,21 @@ app.get('/tasks', function(req, res) {
 			done();
 			res.send(400);
 		} // End if error
-		else { // Start else
+		else { // Start else for successful db connection
 			console.log('Connected to dbToDo');
 			var toDoArray = []; // Empty array for results
+			// Start of SELECT query
 			var resultSet = connection.query('SELECT * FROM "tblToDo"');
 			resultSet.on('row', function(row) {
 				// Loop through resultSet; push each row into toDoArray
 				toDoArray.push(row);
-			}); // End else
+			}); // End of SELECT query instructions
+			// Start end connection definition
 			resultSet.on('end', function() {
 				// Close connection
 				done();
 				res.send(toDoArray);
-			});
-		}
-	});
-}); // END tasks GET response
+			}); // End of end connection definition
+		} // End of else for successful db connection
+	}); // End definition to connect to dbToDo
+}); // END /tasks GET response
