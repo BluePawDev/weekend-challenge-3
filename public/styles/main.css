@@ -1,3 +1,47 @@
-h1, h2 {
+h1, h2, .listDisplay {
   font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+.table {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tblHeader {
+  background-color: #D8D8D8;
+  border-color: #D8D8D8;
+  border: none;
+}
+
+.cmdBtn {
+  font-size: 13px;
+}
+
+.input {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  background: transparent;
+  border: none;
+}
+
+.inputCenter {
+  text-align: center;
+}
+
+.tableHeader {
+  font-size: 13px;
+}
+
+.txtPriority {
+  width: 40px;
+}
+
+.dtmDue {
+  width: 90px;
+}
+
+.txtTask {
+  width: 350px;
 }
