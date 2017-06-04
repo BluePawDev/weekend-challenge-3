@@ -13,6 +13,8 @@
   <body>
     <h1>To Do List</h1>
     <div class="listDisplay">
+      <button id="cmdNew" class="cmdBtn" type="button" name="button">New Task</button>
+      <br><br>
       <table id="tblToDo" class="table">
         <tr id="tblHead">
           <th class="tblHeader">Task</th>
@@ -20,7 +22,7 @@
           <th class="tblHeader">Due</th>
           <th class="tblHeader">Completed</th>
           <th class="tblHeader">Done</th>
-          <th class="tblHeader">Add New</th>
+          <th class="tblHeader">Remove</th>
         </tr>
         <tr>
           <td id="cellTask">
@@ -39,7 +41,7 @@
             <button id="cmdDone" class="cmdBtn" type="button" name="cmdDone">Done</button>
           </td>
           <td id="cellDone">
-            <button id="cmdAdd" class="cmdBtn" type="button" name="cmdNew">Add</button>
+            <button id="cmdRemove" class="cmdBtn" type="button" name="cmdRemove">Remove</button>
           </td>
         </tr>
       </table>
