@@ -14,7 +14,6 @@ var config = {
 };
 var pool = new pg.Pool(config);
 
-
 // Listen
 app.listen(7500, function() {
 	console.log('server listening on :7500');
@@ -34,7 +33,6 @@ app.get('/', function(req, res) {
 	console.log('Base URL hit');
 	res.sendFile(path.resolve('views/index.html'));
 }); // END base URL
-
 
 // START /tasks GET response
 app.get('/tasks', function(req, res) {
@@ -71,8 +69,6 @@ app.post('/newTask', function(req, res) {
 	var data = req.body;
 	var task = data.task;
 	var due = data.due;
-	console.log(task);
-	console.log(due);
 	pool.connect(function(err, connection, done) {
 		if (err) {
 			console.log('error connecting to db');
@@ -81,7 +77,7 @@ app.post('/newTask', function(req, res) {
 		} else {
 			var updateTasks = connection.query('INSERT INTO "tblToDo"("txtTask", "dtmDue") VALUES ($1, $2)', [task, due]);
 			done();
-			res.send(200);
+			res.sendStatus(200);
 		}
 	})
 });

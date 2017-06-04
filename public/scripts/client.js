@@ -1,59 +1,34 @@
 // START on Doc Ready
 $(document).ready(function() {
 	getTasks();
-	// $('#cmdNew').on('click', clickNew);
 	$('#cmdAdd').on('click', clickAdd);
 	$('#tblToDo').on('click', '#cmdDone', clickDone);
 	$('#tblToDo').on('click', '#cmdRemove', clickRemove);
 }); // END on Doc Ready
 
-// START clickNew
-var clickNew = function() {
-	console.log('New clicked');
-	$('#tblToDo').append('<tr id="N">' + '<td id="cellTask">' + '<input class="input txtTask" type="text" name="txtTask" value="">' + '</td>' + '<td id = "cellPriority">' + '<input class="input inputCenter txtPriority" type="text" name="txtPriority" value="">' + '</td>' + '<td id="cellDue">' + '<input class="input inputCenter dtmDue" type="text" name="dtmDue" value="">' + '</td>' + '<td id="cellComplete">' + '<input class="input inputCenter dtmDue" value disabled="disabled" type="text" name="dtmComplete" value="">' + '</td>' + '<td id="cellAdd">' + '<button id="cmdAdd" class="cmdBtn" type="button" name="cmdAdd">' + 'Add' + '</button>' + '</td>' + '<td id="cellDone">' + '<button id="cmdDone" class="cmdBtn" type="button" name="cmdDone">' + 'Done' + '</button>' + '</td>' + '<td id="cellRemove">' + '<button id="cmdRemove" class="cmdBtn" type="button" name="cmdRemove">' + 'Remove' + '</button>' + '</td>' + '</tr>');
-}; // END clickNew
-
-
-
 // START clickAdd
 function clickAdd() {
+	// Local variables
 	var task = $('#txtNewTask').val();
 	var due = $('#dtmNewDue').val();
-	// Start task obj to send definition
-	var taskToPost = {
-		task: task,
-		due: due
-	}; // End task obj to send definition
-	console.log(taskToPost);
-	$.ajax({
-		type: 'POST',
-		url: '/newTask',
-		data: taskToPost,
-		success: function(response) {}
-	})
-
-}
-
-// function clickAdd() {
-// Local variables
-// var row = $('#N');
-// var priority = $('#N > td > .txtPriority').val();
-// var due = $('.dtmDue').val();
-
-// console.log(priority);
-// console.log(due);
-// } // END clickAdd
-
-// START clickDone
-function clickDone() {
-	console.log('Done clicked');
-} // END clickDone
-
-// START clickRemove
-function clickRemove() {
-	console.log('Remove clicked');
-} // END clickRemove
-
+	// If evaluating for empty fields
+	if (task === '' || due === "") {
+		alert('Supply a task and due date');
+	} else { // Star of else
+		// Start task obj to send definition
+		var taskToPost = {
+			task: task,
+			due: due
+		}; // End task obj to send definition
+		// Start of Ajax newTask to POST
+		$.ajax({
+			type: 'POST',
+			url: '/newTask',
+			data: taskToPost,
+			success: function(response) {}
+		}); // End of Ajax newTask to POST
+	} // End of else
+} // END clickAdd
 
 // START getTasks function
 function getTasks() {
@@ -82,3 +57,13 @@ function getTasks() {
 		} // End of success definition
 	}); // End of Ajax GET call definition
 } // END getTasks function
+
+// START clickDone
+function clickDone() {
+	console.log('Done clicked');
+} // END clickDone
+
+// START clickRemove
+function clickRemove() {
+	console.log('Remove clicked');
+} // END clickRemove

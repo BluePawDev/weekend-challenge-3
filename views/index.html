@@ -12,6 +12,7 @@
 
   <body>
     <h1>To Do List</h1>
+    <!-- START newTask -->
     <div class="newTask">
       <label class="label" for="txtTask">Task: </label>
       <input id="txtNewTask" class="input new" type="text" name="txtTask" value="">
@@ -19,8 +20,10 @@
       <input id="dtmNewDue" class="input new" type="date" name="dtmDue" value="">
       <button id="cmdAdd" class="cmdBtn" type="button" name="button">Add</button>
       <hr>
-
     </div>
+    <!-- END newTask -->
+
+    <!-- START listDisplay -->
     <div class="listDisplay">
       <table id="tblToDo" class="table">
         <tr id="tblHead">
@@ -30,8 +33,8 @@
           <th class="tblHeader">Remove</th>
         </tr>
       </table>
-
     </div>
+    <!-- END listDisplay -->
 
   </body>
 
