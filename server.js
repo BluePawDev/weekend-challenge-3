@@ -65,3 +65,23 @@ app.get('/tasks', function(req, res) {
 		} // End of else for successful db connection
 	}); // End definition to connect to dbToDo
 }); // END /tasks GET response
+
+// START /newTask to POST
+app.post('/newTask', function(req, res) {
+	var data = req.body;
+	var task = data.task;
+	var due = data.due;
+	console.log(task);
+	console.log(due);
+	pool.connect(function(err, connection, done) {
+		if (err) {
+			console.log('error connecting to db');
+			done();
+			res.send(400);
+		} else {
+			var updateTasks = connection.query('INSERT INTO "tblToDo"("txtTask", "dtmDue") VALUES ($1, $2)', [task, due]);
+			done();
+			res.send(200);
+		}
+	})
+});

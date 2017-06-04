@@ -3,6 +3,10 @@ h1, h2, .listDisplay {
   text-align: center;
 }
 
+.newTask {
+  text-align: center;
+}
+
 .table {
   border: none;
   margin: 0;
@@ -36,14 +40,16 @@ h1, h2, .listDisplay {
   font-size: 13px;
 }
 
-.txtPriority {
-  width: 40px;
-}
-
-.dtmDue {
-  width: 90px;
-}
-
 .txtTask {
-  width: 350px;
+  width: 250px;
+}
+
+.label {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.new {
+  background-color: #A9F5E1;
 }

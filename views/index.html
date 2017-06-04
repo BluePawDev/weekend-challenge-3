@@ -12,38 +12,23 @@
 
   <body>
     <h1>To Do List</h1>
+    <div class="newTask">
+      <label class="label" for="txtTask">Task: </label>
+      <input id="txtNewTask" class="input new" type="text" name="txtTask" value="">
+      <label class="label" for="">Due: </label>
+      <input id="dtmNewDue" class="input new" type="date" name="dtmDue" value="">
+      <button id="cmdAdd" class="cmdBtn" type="button" name="button">Add</button>
+      <hr>
+
+    </div>
     <div class="listDisplay">
-      <button id="cmdNew" class="cmdBtn" type="button" name="button">New Task</button>
-      <br><br>
       <table id="tblToDo" class="table">
         <tr id="tblHead">
           <th class="tblHeader">Task</th>
-          <th class="tblHeader">Priority</th>
           <th class="tblHeader">Due</th>
-          <th class="tblHeader">Completed</th>
           <th class="tblHeader">Done</th>
           <th class="tblHeader">Remove</th>
         </tr>
-        <!-- <tr> -->
-        <!-- <td id="cellTask">
-            <input class="input txtTask" type="text" name="txtTask" value="Finish Weekend Challenge 3">
-          </td>
-          <td id="cellPriority">
-            <input class="input inputCenter txtPriority" type="text" name="txtPriority" value="High">
-          </td>
-          <td id="cellDue">
-            <input class="input inputCenter dtmDue" type="text" name="dtmDue" value="Sat, 06/03/17">
-          </td>
-          <td id="cellComplete">
-            <input class="input inputCenter dtmDue" value disabled="disabled" type="text" name="dtmComplete" value="06/03/17">
-          </td>
-          <td id="cellDone">
-            <button id="cmdDone" class="cmdBtn" type="button" name="cmdDone">Done</button>
-          </td>
-          <td id="cellDone">
-            <button id="cmdRemove" class="cmdBtn" type="button" name="cmdRemove">Remove</button>
-          </td> -->
-        <!-- </tr> -->
       </table>
 
     </div>
