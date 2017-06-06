@@ -1,4 +1,4 @@
-h1, h2, .listDisplay {
+h1, h2, h3, .listDisplay {
   font-family: Helvetica, Arial, sans-serif;
   text-align: center;
 }
@@ -52,4 +52,9 @@ h1, h2, .listDisplay {
 
 .new {
   background-color: #A9F5E1;
+}
+
+.test {
+  text-decoration: line-through;
+  color: #D8D8D8;
 }

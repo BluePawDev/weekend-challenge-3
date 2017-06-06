@@ -7,7 +7,7 @@ var pg = require('pg');
 /*** GLOBALS ***/
 var app = express();
 var config = {
-	database: 'dbToDo',
+	database: 'dbtodo',
 	host: 'localhost',
 	port: 5432,
 	max: 12
@@ -49,7 +49,7 @@ app.get('/tasks', function(req, res) {
 			console.log('Connected to dbToDo');
 			var toDoArray = []; // Empty array for results
 			// Start of SELECT query
-			var resultSet = connection.query('SELECT * FROM "tblToDo"');
+			var resultSet = connection.query('SELECT * FROM tbltodo');
 			resultSet.on('row', function(row) {
 				// Loop through resultSet; push each row into toDoArray
 				toDoArray.push(row);
@@ -75,9 +75,32 @@ app.post('/newTask', function(req, res) {
 			done();
 			res.send(400);
 		} else {
-			var updateTasks = connection.query('INSERT INTO "tblToDo"("txtTask", "dtmDue") VALUES ($1, $2)', [task, due]);
+			var updateTasks = connection.query('INSERT INTO tbltodo(txttask, dtmdue) VALUES ($1, $2)', [task, due]);
 			done();
 			res.sendStatus(200);
 		}
 	})
+});
+
+// START /updateTask to POST
+app.post('/updateTask', function(req, res) {
+	var data = req.body;
+	var taskFinished = data.task;
+	var dateDone = data.done;
+	pool.connect(function(err, connection, done) {
+		if (err) {
+			console.log('error connecting to db');
+			done();
+			res.send(400);
+		} else {
+			var updateTask = connection.query("UPDATE tbltodo SET dtmcomplete = '" + dateDone + "' WHERE txttask = '" + req.body.taskFinished + "';");
+			done();
+			res.sendStatus(200);
+		}
+	})
+});
+
+// START /taskDelete
+app.post('/taskDelete', function(req, res) {
+
 });
